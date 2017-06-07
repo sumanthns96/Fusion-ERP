@@ -17,6 +17,7 @@ public class ERP {
 
    
            public void start(){
+               ERPProgress p = new ERPProgress();
        ERPLoginAuth erplogin = new ERPLoginAuth();
       ERPLoginerror error = new ERPLoginerror();
         ERPDBConnect con = new ERPDBConnect(error);
@@ -27,10 +28,7 @@ public class ERP {
        
               ERP e = new ERP();
               e.start();
-       
 
-     
-        
     }
     
 }

@@ -54,6 +54,10 @@
           </Border>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel(){&#xa;&#xa;    public void paintComponent(Graphics g){&#xa;        g.drawImage(image1, 0, 0,getWidth(),getHeight(),this);&#xa;&#xa;    };&#xa;}"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icon2 = new ImageIcon(getClass().getResource(&quot;/icons/dashback1.jpg&quot;));&#xa;Image image1 = icon2.getImage();"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -134,10 +138,14 @@
         </Component>
         <Container class="javax.swing.JDesktopPane" name="desktop">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="84" green="5e" red="38" type="rgb"/>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new java.awt.Color(56, 94, 132)" type="code"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JDesktopPane(){&#xa;&#xa; public void paintComponent(Graphics g){&#xa;        g.drawImage(image,0,0,getWidth(),getHeight(),this);&#xa;    };&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="ImageIcon icon = new ImageIcon(getClass().getResource(&quot;/icons/dashback.jpg&quot;));&#xa;Image image = icon.getImage();"/>
+          </AuxValues>
 
           <Layout>
             <DimensionLayout dim="0">

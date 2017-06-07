@@ -5,6 +5,7 @@
  */
 package erp;
 
+import java.awt.MediaTracker;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
@@ -15,31 +16,39 @@ import javax.swing.Timer;
  */
 public class ERPProgress extends javax.swing.JInternalFrame {
 Timer timer;
+int n;
     /**
      * Creates new form ERPProgress
      */
     public ERPProgress() {
+        
         initComponents();
+        
     }
     
-    
-    
-    
-    
-    
-    
-   public class progress implements ActionListener{
+  public void setlabel(String label){jLabel1.setText(label);}    
+
+    class progress implements ActionListener {
+        
+       
    @Override
    public void actionPerformed(ActionEvent evt){
    
-   int n =jProgressBar1.getValue();
+    
+         n =jProgressBar1.getValue();
    if(n<100)
    {
        n++;
        jProgressBar1.setValue(n);
+        if(n==100){ERPProgress.this.setVisible(false);}
+       
    }
-   else {timer.stop();}
+  
+   else {
    
+    timer.stop();
+   }
+      
    
    }
    }
@@ -77,7 +86,6 @@ Timer timer;
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Fetching your data....");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,21 +94,21 @@ Timer timer;
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
+                        .addGap(49, 49, 49)
                         .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel1)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addGap(85, 85, 85)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(9, 9, 9)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,8 +116,13 @@ Timer timer;
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
       
+    
         timer = new Timer(20,new progress());
           timer.start();
+          
+          
+          
+       
     }//GEN-LAST:event_formInternalFrameOpened
 
 

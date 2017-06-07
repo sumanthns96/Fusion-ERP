@@ -6,6 +6,9 @@
 package erp;
 
 import javax.swing.JInternalFrame;
+import java.awt.Image;
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -30,13 +33,28 @@ public class ERPMainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        ImageIcon icon2 = new ImageIcon(getClass().getResource("/icons/dashback1.jpg"));
+        Image image1 = icon2.getImage();
+        jPanel1 = new javax.swing.JPanel(){
+
+            public void paintComponent(Graphics g){
+                g.drawImage(image1, 0, 0,getWidth(),getHeight(),this);
+
+            };
+        };
         inventory = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         purchases = new javax.swing.JButton();
-        desktop = new javax.swing.JDesktopPane();
+        ImageIcon icon = new ImageIcon(getClass().getResource("/icons/dashback.jpg"));
+        Image image = icon.getImage();
+        desktop = new javax.swing.JDesktopPane(){
+
+            public void paintComponent(Graphics g){
+                g.drawImage(image,0,0,getWidth(),getHeight(),this);
+            };
+        };
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Dash Board");
@@ -139,7 +157,9 @@ public class ERPMainMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+       ERPProgress prog = new ERPProgress();   
+       this.desktop.add(prog);
+       prog.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
